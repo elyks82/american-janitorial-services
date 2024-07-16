@@ -1,0 +1,37 @@
+html, * {
+  scroll-behavior: smooth;
+}
+
+.main-container{
+  background-color: black;
+  color: #bbb;
+}
+
+.navigator a,
+.navigator button {
+  position: relative;
+  display: inline-block;
+  text-decoration: none; /* Optional for <a>: Removes the default underline */
+  overflow: hidden; /* Ensures the pseudo-element does not overflow */
+}
+
+.navigator a::after,
+.navigator button::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px; /* Adjust the thickness of the underline */
+  background-color: currentColor; /* Matches the color of the text */
+  transform: scaleX(0);
+  transform-origin: bottom left;
+  transition: transform 0.3s ease-out; /* Adjust timing and easing as needed */
+}
+
+.navigator a:hover::after,
+.navigator a:focus::after,
+.navigator button:hover::after,
+.navigator button:focus::after { /* Also show underline on focus for accessibility */
+  transform: scaleX(1);
+}
